@@ -33,5 +33,25 @@ namespace Advent.Tests
             Assert.Equal(a * b * c, x);
             _output.WriteLine($"{a} * {b} * {c} = {x}");
         }
+
+        [Theory]
+        [InlineData("Resources/Day2/sample2.txt", 2)]
+        [InlineData("Resources/Day2/day2.txt", 517)]
+        public async Task Day2_Task1(string file, int expected)
+        {
+            var count = await Day2.Task1(file);
+            Assert.Equal(expected, count);
+            _output.WriteLine($"{count}");
+        }
+
+        [Theory]
+        [InlineData("Resources/Day2/sample2.txt", 1)]
+        [InlineData("Resources/Day2/day2.txt", 284)]
+        public async Task Day2_Task2(string file, int expected)
+        {
+            var count = await Day2.Task2(file);
+            Assert.Equal(expected, count);
+            _output.WriteLine($"{count}");
+        }
     }
 }
