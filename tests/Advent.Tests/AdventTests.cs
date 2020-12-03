@@ -53,5 +53,25 @@ namespace Advent.Tests
             Assert.Equal(expected, count);
             _output.WriteLine($"{count}");
         }
+
+        [Theory]
+        [InlineData("Resources/Day3/sample3.txt", 7)]
+        [InlineData("Resources/Day3/day3.txt", 178)]
+        public async Task Day3_Task1(string file, int expected)
+        {
+            var count = await Day3.Task1(file);
+            Assert.Equal(expected, count);
+            _output.WriteLine($"{count}");
+        }
+
+        [Theory]
+        [InlineData("Resources/Day3/sample3.txt", 336)]
+        [InlineData("Resources/Day3/day3.txt", 3492520200)]
+        public async Task Day3_Task2(string file, long expected)
+        {
+            var count = await Day3.Task2(file);
+            Assert.Equal(expected, count);
+            _output.WriteLine($"{count}");
+        }
     }
 }

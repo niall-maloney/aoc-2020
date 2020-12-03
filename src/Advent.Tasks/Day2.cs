@@ -1,4 +1,3 @@
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,14 +30,13 @@ namespace Advent.Tasks
             });
         }
 
-        private static async Task<(Rule, string)[]> Parse(string file)
+        private static Task<(Rule, string)[]> Parse(string file)
         {
-            var input = await File.ReadAllLinesAsync(file);
-            return input.Select(line =>
+            return LittleHelper.Parse(file, line =>
             {
                 var s = line.Split(':');
                 return (new Rule(s[0]), s[1]);
-            }).ToArray();
+            });
         }
     }
 

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -46,10 +45,9 @@ namespace Advent.Tasks
             throw new KeyNotFoundException();
         }
 
-        private static async Task<int[]> Parse(string file)
+        private static Task<int[]> Parse(string file)
         {
-            var input = await File.ReadAllLinesAsync(file);
-            return input.Select(int.Parse).ToArray();
+            return LittleHelper.Parse(file, int.Parse);
         }
     }
 }
