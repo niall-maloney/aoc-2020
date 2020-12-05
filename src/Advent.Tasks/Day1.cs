@@ -47,7 +47,7 @@ namespace Advent.Tasks
 
         private static Task<int[]> Parse(string file)
         {
-            return LittleHelper.Parse(file, int.Parse);
+            return LittleHelper.Parse(file, "\n", int.Parse);
         }
     }
 }

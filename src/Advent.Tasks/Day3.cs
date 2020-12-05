@@ -53,7 +53,7 @@ namespace Advent.Tasks
 
         private static Task<int[][]> Parse(string file)
         {
-            return LittleHelper.Parse(file, line => { return line.Select(c => c == '.' ? 0 : 1).ToArray(); });
+            return LittleHelper.Parse(file, "\n", line => { return line.Select(c => c == '.' ? 0 : 1).ToArray(); });
         }
     }
 }

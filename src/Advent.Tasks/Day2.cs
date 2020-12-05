@@ -32,7 +32,7 @@ namespace Advent.Tasks
 
         private static Task<(Rule, string)[]> Parse(string file)
         {
-            return LittleHelper.Parse(file, line =>
+            return LittleHelper.Parse(file, "\n", line =>
             {
                 var s = line.Split(':');
                 return (new Rule(s[0]), s[1]);
