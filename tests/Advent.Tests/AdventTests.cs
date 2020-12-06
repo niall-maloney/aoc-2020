@@ -14,6 +14,8 @@ namespace Advent.Tests
             _output = output;
         }
 
+        #region Day1
+
         [Theory]
         [InlineData("Resources/Day1/sample1.txt")]
         [InlineData("Resources/Day1/day1.txt")]
@@ -33,6 +35,10 @@ namespace Advent.Tests
             Assert.Equal(a * b * c, x);
             _output.WriteLine($"{a} * {b} * {c} = {x}");
         }
+
+        #endregion
+
+        #region Day2
 
         [Theory]
         [InlineData("Resources/Day2/sample2.txt", 2)]
@@ -54,6 +60,10 @@ namespace Advent.Tests
             _output.WriteLine($"{count}");
         }
 
+        #endregion
+
+        #region Day3
+
         [Theory]
         [InlineData("Resources/Day3/sample3.txt", 7)]
         [InlineData("Resources/Day3/day3.txt", 178)]
@@ -73,6 +83,10 @@ namespace Advent.Tests
             Assert.Equal(expected, count);
             _output.WriteLine($"{count}");
         }
+
+        #endregion
+
+        #region Day4
 
         [Theory]
         [InlineData("Resources/Day4/sample4_0.txt", 2)]
@@ -95,6 +109,10 @@ namespace Advent.Tests
             _output.WriteLine($"{count}");
         }
 
+        #endregion
+
+        #region Day5
+
         [Theory]
         [InlineData("Resources/Day5/sample5_0.txt", 820)]
         [InlineData("Resources/Day5/day5.txt", 896)]
@@ -113,5 +131,31 @@ namespace Advent.Tests
             Assert.Equal(expected, actual);
             _output.WriteLine($"{actual}");
         }
+
+        #endregion
+
+        #region Day6
+
+        [Theory]
+        [InlineData("Resources/Day6/sample6.txt", 11)]
+        [InlineData("Resources/Day6/day6.txt", 6947)]
+        public async Task Day6_Task1(string file, long expected)
+        {
+            var count = await Day6.Task1(file);
+            Assert.Equal(expected, count);
+            _output.WriteLine($"{count}");
+        }
+
+        [Theory]
+        [InlineData("Resources/Day6/sample6.txt", 6)]
+        [InlineData("Resources/Day6/day6.txt", 3398)]
+        public async Task Day6_Task2(string file, long expected)
+        {
+            var count = await Day6.Task2(file);
+            Assert.Equal(expected, count);
+            _output.WriteLine($"{count}");
+        }
+
+        #endregion
     }
 }
