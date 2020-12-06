@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,18 +19,14 @@ namespace Advent.Tasks
             var count = 0;
             foreach (var line in lines)
             {
-                var groupAnswers = line.Split("\n", StringSplitOptions.RemoveEmptyEntries);
-                var groupSize = groupAnswers.Length;
-                var counts = new Dictionary<char, int>();
-                foreach (var personAnswers in groupAnswers)
-                {
-                    foreach (var answer in personAnswers)
-                    {
-                        counts.TryAdd(answer, 0);
-                        counts[answer]++;
-                    }
-                }
-                count += counts.Count(c => c.Value == groupSize);
+                var answers = line.Split("\n", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(s => s.ToCharArray())
+                    .ToArray();
+
+                count += answers
+                    .Skip(1)
+                    .Aggregate(answers.First(), (p1, p2) => p1.Intersect(p2).ToArray())
+                    .Count();
             }
 
             return count;
