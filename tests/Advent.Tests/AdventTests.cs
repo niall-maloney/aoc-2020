@@ -182,5 +182,29 @@ namespace Advent.Tests
         }
 
         #endregion
+
+        #region Day8
+
+        [Theory]
+        [InlineData("Resources/Day8/sample8.txt", 5)]
+        [InlineData("Resources/Day8/day8.txt", 1709)]
+        public async Task Day8_Task1(string file, long expected)
+        {
+            var count = await Day8.Task1(file);
+            Assert.Equal(expected, count);
+            _output.WriteLine($"{count}");
+        }
+
+        [Theory]
+        [InlineData("Resources/Day8/sample8.txt", 8)]
+        [InlineData("Resources/Day8/day8.txt", 1976)]
+        public async Task Day8_Task2(string file, long expected)
+        {
+            var count = await Day8.Task2(file);
+            Assert.Equal(expected, count);
+            _output.WriteLine($"{count}");
+        }
+
+        #endregion
     }
 }
